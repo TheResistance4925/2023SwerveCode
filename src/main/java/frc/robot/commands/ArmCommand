@@ -1,0 +1,27 @@
+package frc.robot.commands;
+
+import frc.robot.Constants;
+import frc.robot.subsystems.ArmSubsystem;
+
+import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
+
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+
+public class ArmCommand extends CommandBase {
+    private final ArmSubsystem armSubsystem;
+    private final double armarmSpeed;
+
+    Public ArmCommand(ArmSubsystem armSubsystem, double armSpeed) {
+        this.armSubsystem = armSubsystem;
+        this.armSpeed = armSpeed;
+        addRequirements(armSubsystem);
+    }
+
+   @Override
+   public void execute() {
+    armSubsystem.setMotor(armSpeed);
+   } 
+}
